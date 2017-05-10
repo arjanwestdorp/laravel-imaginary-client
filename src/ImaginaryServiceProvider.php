@@ -26,6 +26,10 @@ class ImaginaryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/imaginary.php', 'imaginary'
+        );
+        
         $this->app->bind('imaginary.client', function () {
             return new Client(config('imaginary'));
         });
