@@ -5,41 +5,51 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/arjanwestdorp/laravel-imaginary-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/arjanwestdorp/laravel-imaginary-client)
 [![Coverage](https://img.shields.io/scrutinizer/coverage/g/arjanwestdorp/laravel-imaginary-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/arjanwestdorp/laravel-imaginary-client)
 
-This package is a Laravel implementation of the [imaginary client](https://github.com/arjanwestdorp/imaginary-client).
- More information about this client can be found on [https://github.com/arjanwestdorp/imaginary-client](https://github.com/arjanwestdorp/imaginary-client)
+This package is a Laravel implementation of the [imaginary client](https://github.com/arjanwestdorp/imaginary-client).More information about this client can be found on [https://github.com/arjanwestdorp/imaginary-client](https://github.com/arjanwestdorp/imaginary-client)
+
+## Installation
+
+The recommended way to install the client is through composer:
+~~~
+composer require arjanwestdorp/imaginary-client
+~~~
+
+Register the service provider and optionally the facade:
+~~~php
+// config/app.php
  
- ## Installation
+'providers' => [
+    ...
+    ArjanWestdorp\Imaginary\Laravel\ImaginaryServiceProvider::class,
+];
  
- The recommended way to install the client is through composer:
- ~~~
- composer require arjanwestdorp/imaginary-client
- ~~~
- 
- Register the service provider and optionally the facade:
- ~~~php
- // config/app.php
-  
- 'providers' => [
-     ...
-     ArjanWestdorp\Imaginary\Laravel\ImaginaryServiceProvider::class,
- ];
-  
- 'aliases' => [
-     ...
-     'Imaginary' => ArjanWestdorp\Imaginary\Laravel\Imaginary::class,
- ];
- ~~~
- 
- ## Security
- 
- If you discover any security issues, please email arjanwestdorp@gmail.com instead of creating an issue.
- 
- ## Credits
- 
- - [Arjan Westdorp](https://github.com/arjanwestdorp)
- - [All Contributors](../../contributors)
- 
- ## License
- 
- The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+'aliases' => [
+    ...
+    'Imaginary' => ArjanWestdorp\Imaginary\Laravel\Imaginary::class,
+];
+~~~
+
+Finally you'll need to add these two keys to your `.env` file:
+```
+IMAGINARY_CLIENT=
+IMAGINARY_URL=
+```
+
+Optionally you can publish the config file:
+~~~ 
+php artisan vendor:publish --provider="ArjanWestdorp\Imaginary\Laravel\ImaginaryServiceProvider" --tag="config"
+~~~
+
+## Security
+
+If you discover any security issues, please email arjanwestdorp@gmail.com instead of creating an issue.
+
+## Credits
+
+- [Arjan Westdorp](https://github.com/arjanwestdorp)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
