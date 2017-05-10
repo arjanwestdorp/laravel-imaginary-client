@@ -1,0 +1,30 @@
+{
+  "name": "arjanwestdorp/laravel-imaginary-client",
+  "description": "A laravel implementation of the imaginary client",
+  "authors": [
+    {
+      "name": "Arjan Westdorp",
+      "email": "arjanwestdorp@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6.0",
+    "illuminate/support": "~5.3.0",
+    "arjanwestdorp/imaginary-client": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.7.1",
+    "orchestra/testbench": "~3.3.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "ArjanWestdorp\\Imaginary\\Laravel\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ArjanWestdorp\\Imaginary\\Laravel\\Test\\": "tests"
+    }
+  }
+}
