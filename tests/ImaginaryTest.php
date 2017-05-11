@@ -3,7 +3,6 @@
 namespace ArjanWestdorp\Imaginary\Laravel\Test;
 
 use ArjanWestdorp\Imaginary\Builder;
-use ArjanWestdorp\Imaginary\Client;
 use ArjanWestdorp\Imaginary\Laravel\Imaginary;
 
 class ImaginaryTest extends TestCase
