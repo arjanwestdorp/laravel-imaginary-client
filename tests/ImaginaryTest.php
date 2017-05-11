@@ -2,7 +2,7 @@
 
 namespace ArjanWestdorp\Imaginary\Laravel\Test;
 
-use ArjanWestdorp\Imaginary\Client;
+use ArjanWestdorp\Imaginary\Builder;
 use ArjanWestdorp\Imaginary\Laravel\Imaginary;
 
 class ImaginaryTest extends TestCase
@@ -21,10 +21,27 @@ class ImaginaryTest extends TestCase
     }
 
     /** @test */
+    function it_can_generate_multiple_imaginary_urls()
+    {
+        $url = Imaginary::fetch($this->image)
+            ->width(100)
+            ->height(100)
+            ->url();
+
+        $this->assertEquals($this->getAssertedUrl('w_100,h_100'), $url);
+
+        $url = Imaginary::fetch($this->image)->url();
+        $this->assertEquals($this->getAssertedUrl(''), $url);
+
+        $url = Imaginary::fetch($this->image)->circle()->url();
+        $this->assertEquals($this->getAssertedUrl('r_max'), $url);
+    }
+
+    /** @test */
     function it_can_define_manipulation_sets()
     {
-        Imaginary::define('square', function (Client $imaginary) {
-            $imaginary->width(100)
+        Imaginary::define('square', function (Builder $builder) {
+            $builder->width(100)
                 ->height(100)
                 ->fit();
         });
@@ -43,6 +60,14 @@ class ImaginaryTest extends TestCase
      */
     protected function getAssertedUrl($manipulations)
     {
-        return config('imaginary.url') . '/' . config('imaginary.client') . '/images/fetch/' . $manipulations . '/' . $this->image;
+        $url = config('imaginary.url') . '/' . config('imaginary.client') . '/images/fetch/' . $manipulations;
+
+        if (!empty($manipulations)) {
+            $url .= '/';
+        }
+
+        $url .= $this->image;
+
+        return $url;
     }
 }
