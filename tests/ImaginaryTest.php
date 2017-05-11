@@ -43,6 +43,6 @@ class ImaginaryTest extends TestCase
      */
     protected function getAssertedUrl($manipulations)
     {
-        return config('imaginary.url') . '/' . config('imaginary.client') . '/image/fetch/' . $manipulations . '/' . $this->image;
+        return config('imaginary.url') . '/' . config('imaginary.client') . '/images/fetch/' . $manipulations . '/' . $this->image;
     }
 }

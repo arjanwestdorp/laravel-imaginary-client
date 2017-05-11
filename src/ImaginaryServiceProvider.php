@@ -29,7 +29,7 @@ class ImaginaryServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/imaginary.php', 'imaginary'
         );
-        
+
         $this->app->bind('imaginary.client', function () {
             return new Client(config('imaginary'));
         });
