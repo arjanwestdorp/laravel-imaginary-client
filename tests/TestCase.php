@@ -5,8 +5,6 @@ namespace ArjanWestdorp\Imaginary\Laravel\Test;
 use ArjanWestdorp\Imaginary\Laravel\ImaginaryServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
-//use Orchestra\Testbench\TestCase as Orchestra;
-
 class TestCase extends Orchestra
 {
     /**
