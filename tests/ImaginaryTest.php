@@ -66,7 +66,7 @@ class ImaginaryTest extends TestCase
             $url .= '/';
         }
 
-        $url .= $this->image;
+        $url .= urlencode($this->image);
 
         return $url;
     }
